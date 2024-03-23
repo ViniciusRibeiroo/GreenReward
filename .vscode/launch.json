@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Vue.js: Serve",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}/WebUi-GreenReward",
+        "sourceMapPathOverrides": {
+          "webpack:///src/*": "${webRoot}/*"
+        }
+      },
+      {
+        "name": ".NET Core Launch (web)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "launchBrowser": {
+          "enabled": true
+        },
+        "program": "${workspaceFolder}/WebApi-GreenReward/bin/Debug/netcoreapp3.1/WebApi-GreenReward.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/WebApi-GreenReward",
+        "stopAtEntry": false,
+        "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+        },
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+        "sourceFileMap": {
+          "/Views": "${workspaceFolder}/Views"
+        }
+      }
+    ]
+  }

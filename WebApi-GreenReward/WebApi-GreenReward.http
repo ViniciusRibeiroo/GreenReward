@@ -1,0 +1,6 @@
+@WebApi_GreenReward_HostAddress = http://localhost:8080
+
+GET {{WebApi_GreenReward_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
