@@ -31,3 +31,4 @@ C:\Users\vinny\OneDrive\Área de Trabalho\Projetos\GreenReward\WebApi-GreenRewar
 C:\Users\vinny\OneDrive\Área de Trabalho\Projetos\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.pdb
 C:\Users\vinny\OneDrive\Área de Trabalho\Projetos\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.genruntimeconfig.cache
 C:\Users\vinny\OneDrive\Área de Trabalho\Projetos\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\ref\WebApi-GreenReward.dll
+C:\Users\vinny\OneDrive\Área de Trabalho\Projetos\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.sourcelink.json
