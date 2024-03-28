@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "start": "npm-run-all --parallel serve backend",
+    "backend": "cd ../WebApi-GreenReward && dotnet run"
   },
   "dependencies": {
     "axios": "^1.6.8",

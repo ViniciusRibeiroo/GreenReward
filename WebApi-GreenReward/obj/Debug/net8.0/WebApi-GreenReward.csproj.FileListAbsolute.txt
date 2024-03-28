@@ -32,3 +32,37 @@ C:\Users\vinny\OneDrive\Área de Trabalho\Projetos\GreenReward\WebApi-GreenRewar
 C:\Users\vinny\OneDrive\Área de Trabalho\Projetos\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.genruntimeconfig.cache
 C:\Users\vinny\OneDrive\Área de Trabalho\Projetos\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\ref\WebApi-GreenReward.dll
 C:\Users\vinny\OneDrive\Área de Trabalho\Projetos\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.sourcelink.json
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\appsettings.json
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\WebApi-GreenReward.exe
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\WebApi-GreenReward.deps.json
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\WebApi-GreenReward.runtimeconfig.json
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\WebApi-GreenReward.dll
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\WebApi-GreenReward.pdb
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.csproj.AssemblyReference.cache
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.AssemblyInfoInputs.cache
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.AssemblyInfo.cs
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.csproj.CoreCompileInputs.cache
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.sourcelink.json
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\staticwebassets\msbuild.WebApi-GreenReward.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\staticwebassets\msbuild.build.WebApi-GreenReward.props
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WebApi-GreenReward.props
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WebApi-GreenReward.props
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\scopedcss\bundle\WebApi-GreenReward.styles.css
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-G.68910325.Up2Date
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.dll
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\refint\WebApi-GreenReward.dll
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.pdb
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\WebApi-GreenReward.genruntimeconfig.cache
+C:\Users\João Pedro\Documents\green-reward\GreenReward\WebApi-GreenReward\obj\Debug\net8.0\ref\WebApi-GreenReward.dll
