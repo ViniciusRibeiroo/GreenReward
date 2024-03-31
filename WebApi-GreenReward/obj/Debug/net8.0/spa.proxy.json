@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "",
+"RedirectUrl": "",
+"LaunchCommand": "",
+"WorkingDirectory": "C:\\Users\\vinny\\OneDrive\\Área de Trabalho\\Projetos\\GreenReward\\WebApi-GreenReward",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
