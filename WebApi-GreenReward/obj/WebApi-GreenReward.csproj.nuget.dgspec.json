@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vinny\\OneDrive\\Área de Trabalho\\Projetos\\GreenReward\\WebApi-GreenReward\\WebApi-GreenReward.csproj": {}
+    "C:\\Users\\João Pedro\\Documents\\green-reward\\GreenReward\\WebApi-GreenReward\\WebApi-GreenReward.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vinny\\OneDrive\\Área de Trabalho\\Projetos\\GreenReward\\WebApi-GreenReward\\WebApi-GreenReward.csproj": {
+    "C:\\Users\\João Pedro\\Documents\\green-reward\\GreenReward\\WebApi-GreenReward\\WebApi-GreenReward.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vinny\\OneDrive\\Área de Trabalho\\Projetos\\GreenReward\\WebApi-GreenReward\\WebApi-GreenReward.csproj",
+        "projectUniqueName": "C:\\Users\\João Pedro\\Documents\\green-reward\\GreenReward\\WebApi-GreenReward\\WebApi-GreenReward.csproj",
         "projectName": "WebApi-GreenReward",
-        "projectPath": "C:\\Users\\vinny\\OneDrive\\Área de Trabalho\\Projetos\\GreenReward\\WebApi-GreenReward\\WebApi-GreenReward.csproj",
-        "packagesPath": "C:\\Users\\vinny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vinny\\OneDrive\\Área de Trabalho\\Projetos\\GreenReward\\WebApi-GreenReward\\obj\\",
+        "projectPath": "C:\\Users\\João Pedro\\Documents\\green-reward\\GreenReward\\WebApi-GreenReward\\WebApi-GreenReward.csproj",
+        "packagesPath": "C:\\Users\\João Pedro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\João Pedro\\Documents\\green-reward\\GreenReward\\WebApi-GreenReward\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vinny\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\João Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

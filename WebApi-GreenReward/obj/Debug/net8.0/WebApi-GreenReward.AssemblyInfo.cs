@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApi-GreenReward")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a094255c3b46674c55bb060dbaeb687882c4aa6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70e49e0647f4e08e334dd326115ced515edb08b6")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApi-GreenReward")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApi-GreenReward")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -5,7 +5,7 @@
         "name": "Vue.js: Serve",
         "type": "chrome",
         "request": "launch",
-        "url": "http://localhost:8080",
+        "url": "http://localhost:8081",
         "webRoot": "${workspaceFolder}/WebUi-GreenReward",
         "sourceMapPathOverrides": {
           "webpack:///src/*": "${webRoot}/*"

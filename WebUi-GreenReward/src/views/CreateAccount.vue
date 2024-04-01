@@ -1,11 +1,13 @@
 <template>
   <div class="container-background">
-    <div class="container-banner">
-      <img src="../assets/home.png" style="width: 500px;">
+    <div class="container-botao">
+      <b-button class="botao">
+        CADASTRAR
+      </b-button>
     </div>
     <div class="container-botao">
-      <b-button class="entrar" @click="login">
-        ENTRAR
+      <b-button class="botao" @click="back">
+        VOLTAR
       </b-button>
     </div>
   </div>
@@ -14,7 +16,7 @@
 <script>
 export default {
   methods: {
-    login () {
+    back () {
       this.$router.push('/login')
     }
   }
@@ -24,8 +26,7 @@ export default {
 <style scoped>
 .container-background {
   background: linear-gradient(to bottom, #ffffff, #d2d2d2);
-  min-height: calc(87.3vh - 20px);
-  padding-bottom: 5px;
+  min-height: 100vh;
 }
 .container-banner {
   display: flex;
@@ -39,7 +40,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.entrar {
+.botao {
   background-color: #062800;
   padding: 10px 20px;
   border: 2px solid #062800;
