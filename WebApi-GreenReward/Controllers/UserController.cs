@@ -81,5 +81,61 @@ namespace GreenReward.Server.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> LoginAsync([FromServices] AppDataContext context, [FromBody] LoginModel model)
+        {
+            // Verificar se o modelo é válido
+            // if (!ModelState.IsValid)
+            // {
+            //     return BadRequest("Invalid model");
+            // }
+
+            // Verificar as credenciais do usuário
+            var user = await context.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Senha == model.Senha);
+
+            if (user == null)
+            {
+                return Unauthorized("Invalid email or password");
+            }
+
+            return Ok();
+            // Se as credenciais forem válidas, gerar um token JWT
+            // var token = GenerateJwtToken(user.Email);
+            // Retornar o token JWT como parte da resposta
+            // return Ok(new { token });
+
+        }
+
+        // Método para gerar um token JWT
+        // private string GenerateJwtToken(string email)
+        // {
+        //     // Chave secreta usada para assinar o token (deve ser mantida segura)
+        //     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("sua-chave-secreta-aqui"));
+
+        //     // Definir as credenciais do token (incluindo a chave e o algoritmo de assinatura)
+        //     var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+        //     // Definir as reivindicações do token (neste exemplo, apenas o email do usuário)
+        //     var claims = new[]
+        //     {
+        //         new Claim(JwtRegisteredClaimNames.Sub, email),
+        //         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+        //     };
+
+        //     // Criar o token JWT
+        //     var token = new JwtSecurityToken(
+        //         issuer: "sua-issuing-url-aqui",
+        //         audience: "sua-audience-url-aqui",
+        //         claims: claims,
+        //         expires: DateTime.Now.AddMinutes(30), // Definir tempo de expiração do token
+        //         signingCredentials: creds);
+
+        //     // Retornar o token JWT como uma string
+        //     return new JwtSecurityTokenHandler().WriteToken(token);
+        // }
+    
     }
 }
+
+public record LoginModel(string Email, string Senha);
