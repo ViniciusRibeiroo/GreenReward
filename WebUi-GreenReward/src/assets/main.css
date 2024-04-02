@@ -1,0 +1,32 @@
+@import url('https://fonts.cdnfonts.com/css/bebas-neue');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+:root {
+    --titulo: Bebas Neue, sans-serif;
+    --subtitulo: Bebas Neue, sans-serif;
+  }
+  
+  .titulo {
+    font-family: var(--titulo);
+    font-size: 4.35625em;
+    line-height: 120%;
+    font-weight: bold;
+    color: #062800;
+  }
+
+  .subtitulo {
+    font-family: var(--subtitulo);
+    font-size: 2em;
+    line-height: 120%;
+    letter-spacing: 5px;
+    color: #062800;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .titulo {
+      font-size: 2.75em;
+    }
+    .subtitulo {
+      font-size: 2.75em;
+    }
+  }

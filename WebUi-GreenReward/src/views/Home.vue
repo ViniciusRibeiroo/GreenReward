@@ -1,7 +1,7 @@
 <template>
   <div class="container-background">
     <div class="container-banner">
-      <img src="../assets/home.png" style="width: 500px;">
+      <img src="../assets/home.png" style="width: 400px;">
     </div>
     <div class="container-botao">
       <b-button class="entrar" @click="login">

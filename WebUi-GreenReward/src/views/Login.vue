@@ -5,82 +5,33 @@
     </b-col>
     <b-col sm="5" class="d-flex justify-content-center align-items-center">
       <div class="col-8">
-        <h2 class="text-center mb-5 title-login">Faça o login</h2>
+        <h2 class="text-center titulo">Fazer login</h2>
 
-        <b-form>
-          <b-form-group
-            label="E-mail"
-            label-for="email"
-            >
-              <b-form-input
-                id="email"
-                type="email"
-                placeholder="joaosilva@email.com"
-                autocomplete="off"
-              ></b-form-input>
-            </b-form-group>
+        <div class="container-input">
+          <b-form-input class="input" placeholder="E-MAIL"></b-form-input>
+        </div>
+        <div class="container-input">
+          <b-form-input class="input" placeholder="SENHA"></b-form-input>
+        </div>
 
-            <b-form-group
-              label-for="password"
-            >
-              <label class="d-flex justify-content-between">
-                  Senha
-                <small><a href="#" v-b-modal.modal-prevent-closing>Esqueceu sua senha?</a></small>
-              </label>
+        <div class="container-botao">
+          <b-button class="botao" @click="back">
+            <b-icon icon="arrow90deg-left" style="width: 15px;"></b-icon> VOLTAR
+          </b-button>
+          <b-button class="botao" @click="login">
+            <b-icon icon="arrow-bar-right" style="width: 15px;"></b-icon> ENTRAR
+          </b-button>
+        </div>
+        <div class="container-botao">
+          <p
+          class="subtitulo"
+          style="cursor: pointer;text-decoration: underline;"
+          @click="CreateAccount"
+          >
+          CADASTRE-SE
+        </p>
+        </div>
 
-              <b-modal
-              id="modal-prevent-closing"
-              ref="modal"
-              hide-header
-            >
-              <form ref="form">
-                <h4>Recupere sua senha!</h4>
-                <b-form-group
-                  label="Digite seu e-mail de recuperação"
-                  label-for="email-rec-input"
-                >
-                  <b-form-input
-                    id="email-rec-input"
-                    required
-                  ></b-form-input>
-                </b-form-group>
-              </form>
-            </b-modal>
-
-              <b-form-input
-                id="password"
-                type="password"
-                placeholder="Digite sua senha"
-              ></b-form-input>
-            </b-form-group>
-
-            <b-button
-              type="button"
-              variant="primary"
-              block
-              class="mt-2">
-              <b-icon icon="arrow-bar-right"></b-icon> Entrar
-            </b-button>
-
-            <hr>
-
-            <b-button
-              type="button"
-              variant="outline-secondary"
-              block
-              @click="CreateAccount">
-              <b-icon icon="person-plus-fill"></b-icon> Não tenho conta
-            </b-button>
-        </b-form>
-
-        <b-button
-          type="button"
-          variant="outline-secondary"
-          block
-          class="mt-2"
-          @click="back">
-          <b-icon icon="arrow90deg-left"></b-icon> Voltar
-        </b-button>
       </div>
     </b-col>
   </b-row>
@@ -109,7 +60,6 @@ export default {
 </script>
 
 <style>
-
 *,
 *::after,
 *::before {
@@ -118,22 +68,44 @@ export default {
   box-sizing: border-box;
   text-decoration: none;
 }
-
 .row-login {
   margin-left: 0;
 }
-
-.title-login {
-  font-weight: bold;
-}
-
 .img-login {
-  width: 600px;
+  width: 500px;
 }
-
 .container-background {
   background: linear-gradient(to bottom, #ffffff, #d2d2d2);
   min-height: calc(87.3vh - 20px);
   padding-bottom: 5px;
+}
+.container-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+.container-botao {
+  margin-top: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.botao {
+  background-color: #062800;
+  padding: 10px 20px;
+  border: 2px solid #062800;
+  color: white;
+  font-size: 16px;
+  border-radius: 40px;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+.input {
+  width: 80%;
+  border-width: 0.215rem;
+  border-color: black;
+  border-radius: 30px;
 }
 </style>
