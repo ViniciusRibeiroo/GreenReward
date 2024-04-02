@@ -8,19 +8,39 @@
         <h2 class="text-center titulo">Fazer login</h2>
 
         <div class="container-input">
-          <b-form-input class="input" placeholder="E-MAIL"></b-form-input>
+          <b-form-input
+            id="email"
+            type="email"
+            class="input"
+            autocomplete="off"
+            placeholder="E-MAIL"
+            v-model="email"
+            ></b-form-input>
         </div>
         <div class="container-input">
-          <b-form-input class="input" placeholder="SENHA"></b-form-input>
+          <b-form-input
+            id="senha"
+            type="password"
+            class="input"
+            placeholder="SENHA"
+            v-model="senha"
+            ></b-form-input>
         </div>
 
         <div class="container-botao">
           <b-button class="botao" @click="back">
             <b-icon icon="arrow90deg-left" style="width: 15px;"></b-icon> VOLTAR
           </b-button>
-          <b-button class="botao" @click="login">
+          <b-button
+            class="botao"
+            type="submit"
+            block
+            @click="submit"
+            >
             <b-icon icon="arrow-bar-right" style="width: 15px;"></b-icon> ENTRAR
           </b-button>
+
+          <p v-if="error" class="text-danger mt-4">{{ error }}</p>
         </div>
         <div class="container-botao">
           <p
@@ -38,14 +58,14 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   data () {
     return {
-      form: {
-        email: '',
-        password: ''
-      }
+      email: '',
+      senha: '',
+      error: ''
     }
   },
   methods: {
@@ -54,6 +74,26 @@ export default {
     },
     back () {
       this.$router.push('/')
+    },
+    async submit () {
+      if (!this.email || !this.senha) {
+        this.error = 'Preencha os campos obrigatórios.'
+        return
+      }
+      const loginData = {
+        email: this.email,
+        senha: this.senha
+      }
+      axios
+        .post('http://localhost:8080/api/User', loginData)
+        .then((response) => {
+          this.$router.push('/menu')
+          console.log(response.data)
+        })
+        .catch((error) => {
+          this.error = 'Login ou senha incorretos'
+          console.error('Erro ao fazer login', error)
+        })
     }
   }
 }
