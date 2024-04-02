@@ -39,9 +39,10 @@
             >
             <b-icon icon="arrow-bar-right" style="width: 15px;"></b-icon> ENTRAR
           </b-button>
-
-          <p v-if="error" class="text-danger mt-4">{{ error }}</p>
         </div>
+
+          <p v-if="error" class="text-danger text-center mt-4">{{ error }}</p>
+
         <div class="container-botao">
           <p
           class="subtitulo"
@@ -50,6 +51,42 @@
           >
           CADASTRE-SE
         </p>
+        </div>
+        <div class="text-center">
+          <p
+          class="subtitulo"
+          style="cursor: pointer;text-decoration: underline; font-size: 22px; font-weight: bold"
+          v-b-modal.modal-center
+          >
+          ESQUECI MINHA SENHA
+        </p>
+        <b-modal
+          id="modal-center"
+          ref="modal"
+          centered
+          title="Submit Your Name"
+          hide-header
+          @show="resetModal"
+          @hidden="resetModal"
+          @ok="handleOk"
+        >
+          <h5>Adicione um e-mail de recuperação para redefinir sua senha</h5>
+          <form ref="form" @submit.stop.prevent="handleSubmit">
+            <b-form-group
+              label="Email:"
+              label-for="name-input"
+              invalid-feedback="Name is required"
+            >
+              <b-form-input
+                id="name-input"
+                required
+              ></b-form-input>
+            </b-form-group>
+          </form>
+          <template #modal-footer="{ ok }">
+            <b-button class="botao" v-on="ok">ENVIAR</b-button>
+          </template>
+        </b-modal>
         </div>
 
       </div>
@@ -85,7 +122,7 @@ export default {
         senha: this.senha
       }
       axios
-        .post('http://localhost:8080/api/User', loginData)
+        .post('http://localhost:8080/api/User/login', loginData)
         .then((response) => {
           this.$router.push('/menu')
           console.log(response.data)
