@@ -24,12 +24,6 @@
       </b-button>
     </div>
   </div>
-  <!-- <b-button class="botao">
-    CADASTRAR
-  </b-button>
-  <b-button class="botao" @click="back">
-    VOLTAR
-  </b-button> -->
 </template>
 
 <script>

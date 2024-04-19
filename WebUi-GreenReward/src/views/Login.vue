@@ -152,7 +152,7 @@ export default {
   width: 500px;
 }
 .container-background {
-  background: linear-gradient(to bottom, #ffffff, #d2d2d2);
+  background: linear-gradient(to bottom, #ffffff, #d0d0d0);
   min-height: calc(87.3vh - 20px);
   padding-bottom: 5px;
 }
