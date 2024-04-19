@@ -15,6 +15,8 @@
             autocomplete="off"
             placeholder="E-MAIL"
             v-model="email"
+            @blur="emailBlur"
+            @focus="emailFocus"
             ></b-form-input>
         </div>
         <div class="container-input">
@@ -41,7 +43,13 @@
           </b-button>
         </div>
 
-          <p v-if="error" class="text-danger text-center mt-4">{{ error }}</p>
+        <p
+          v-if="error"
+          style="color: red;font-weight: bold;display: flex;justify-content: center;align-items: center; margin-top: 12px;"
+        >
+          <b-icon icon="exclamation-circle" style="width: 15px;margin-right: 6px;"></b-icon>
+          {{ error }}
+        </p>
 
         <div class="container-botao">
           <p
@@ -102,7 +110,13 @@ export default {
     return {
       email: '',
       senha: '',
-      error: ''
+      error: '',
+      emailTocado: false
+    }
+  },
+  computed: {
+    emailValido () {
+      return this.checkEmail(this.email)
     }
   },
   methods: {
@@ -112,9 +126,23 @@ export default {
     back () {
       this.$router.push('/')
     },
+    checkEmail () {
+      const re = /\S+@\S+\.\S+/
+      return re.test(this.email)
+    },
+    emailBlur () {
+      this.emailTocado = true
+    },
+    emailFocus () {
+      this.emailTocado = false
+    },
     async submit () {
       if (!this.email || !this.senha) {
         this.error = 'Preencha os campos obrigatórios.'
+        return
+      }
+      if (!this.checkEmail(this.email)) {
+        this.error = 'Insira um email válido.'
         return
       }
       const loginData = {
