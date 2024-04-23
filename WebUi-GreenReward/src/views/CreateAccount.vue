@@ -11,6 +11,7 @@
       >
       <b-form-input
         v-model="name"
+        autocomplete="off"
         placeholder="*NOME"
         type="text"
         class="input"
@@ -21,6 +22,7 @@
     <div class="container-input">
       <b-form-input
         v-model="cpf"
+        autocomplete="off"
         v-mask="'###.###.###-##'"
         placeholder="*CPF"
         class="input"
@@ -41,6 +43,7 @@
     <div class="container-input">
       <b-form-input
         v-model="email"
+        autocomplete="off"
         placeholder="*E-MAIL"
         type="text"
         class="input"
@@ -63,6 +66,7 @@
     <div class="container-input">
       <b-form-input
         v-model="senha"
+        autocomplete="off"
         placeholder="*SENHA"
         type="password"
         name="password"

@@ -30,7 +30,8 @@
       <div class="footer">
         <div class="left-content">
           <b-button class="botao" @click="login">
-            <b-icon icon="arrow-bar-left" style="width: 15px;"></b-icon> SAIR
+            <b-icon icon="arrow-bar-left" style="width: 15px;"></b-icon>
+            <small class="titulo-botao" style="margin-left: 5px;">SAIR</small>
           </b-button>
         </div>
         <div class="center-content">
@@ -130,12 +131,12 @@ body {
 }
 
 .footer {
+  background: linear-gradient(to bottom, #ffffff, #d0d0d0);
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 14%;
-  background: linear-gradient(to bottom, #ffffff, #d0d0d0);
   color: white;
   display: flex;
   justify-content: space-between;

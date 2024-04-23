@@ -23,7 +23,6 @@ export default {
 
 <style scoped>
 .container-background {
-  background: linear-gradient(to bottom, #ffffff, #d0d0d0);
   min-height: calc(87.3vh - 20px);
   padding-bottom: 5px;
 }
@@ -47,5 +46,8 @@ export default {
   font-size: 16px;
   border-radius: 40px;
   font-weight: bold;
+}
+.entrar:hover {
+  background-color: #319950;
 }
 </style>

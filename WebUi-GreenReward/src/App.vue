@@ -1,5 +1,5 @@
 <template>
-  <router-view></router-view>
+  <router-view class="inicio"></router-view>
 </template>
 
 <style>
@@ -9,6 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: linear-gradient(to bottom, #ffffff, #d0d0d0);
 }
 
 #nav {
@@ -22,5 +23,9 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.inicio {
+  background: linear-gradient(to bottom, #ffffff, #d0d0d0);
 }
 </style>

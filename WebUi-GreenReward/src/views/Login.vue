@@ -3,7 +3,7 @@
     <b-col sm="7" class="d-flex justify-content-center align-items-center container-background">
       <img src="../assets/home.png" class="img-login" />
     </b-col>
-    <b-col sm="5" class="d-flex justify-content-center align-items-center">
+    <b-col sm="5" class="d-flex justify-content-center align-items-center formulario">
       <div class="col-8">
         <h2 class="text-center titulo">Fazer login</h2>
 
@@ -72,7 +72,6 @@
           id="modal-center"
           ref="modal"
           centered
-          title="Submit Your Name"
           hide-header
           @show="resetModal"
           @hidden="resetModal"
@@ -91,8 +90,8 @@
               ></b-form-input>
             </b-form-group>
           </form>
-          <template #modal-footer="{ ok }">
-            <b-button class="botao" v-on="ok">ENVIAR</b-button>
+          <template #modal-footer>
+            <b-button class="botao" @click="$refs.modal.hide()">ENVIAR</b-button>
           </template>
         </b-modal>
         </div>
@@ -180,7 +179,6 @@ export default {
   width: 500px;
 }
 .container-background {
-  background: linear-gradient(to bottom, #ffffff, #d0d0d0);
   min-height: calc(87.3vh - 20px);
   padding-bottom: 5px;
 }
@@ -207,10 +205,16 @@ export default {
   font-weight: bold;
   margin-right: 1rem;
 }
+.botao:hover {
+  background-color: #319950;
+}
 .input {
   width: 80%;
   border-width: 0.215rem;
   border-color: black;
   border-radius: 30px;
+}
+.formulario {
+  background: #fff;
 }
 </style>
