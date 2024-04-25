@@ -33,7 +33,7 @@
 
     <div class="container-input">
       <b-button class="botao input">
-        <small class="titulo-botao">ADICIONAR</small>
+        <small class="titulo-botao" @click="exibeToast">ADICIONAR</small>
       </b-button>
     </div>
 
@@ -41,6 +41,14 @@
 </template>
 
 <script>
+export default {
+  methods: {
+    exibeToast () {
+      // eslint-disable-next-line no-undef
+      Toast.fire('Material adicionado!', 'Prossiga para os próximos passos.', 'success')
+    }
+  }
+}
 </script>
 
 <style scoped>

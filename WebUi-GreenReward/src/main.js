@@ -22,7 +22,7 @@ Vue.use(VMask)
 const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
-  timer: 3000,
+  timer: 5000,
   timerProgressBar: true,
   showConfirmButton: false
 })
