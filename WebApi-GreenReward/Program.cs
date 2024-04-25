@@ -17,8 +17,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseRouting();
 app.UseCors("CorsPolicy");
+app.UseRouting();
 app.UseDefaultFiles(); 
 app.UseStaticFiles();
 
