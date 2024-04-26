@@ -24,6 +24,11 @@ const routes = [
     path: '/menu',
     name: 'Menu',
     component: () => import('../views/Menu.vue')
+  },
+  {
+    path: '/material',
+    name: 'Material',
+    component: () => import('../views/components/Material.vue')
   }
 ]
 
