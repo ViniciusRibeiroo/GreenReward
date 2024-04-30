@@ -7,31 +7,42 @@
         sticky-header
         :items="items"
         :fields="fields"
+        show-empty
+        empty-text="Nenhum registro encontrado."
         class="tabela"
         label-sort-asc=""
         label-sort-desc=""
         label-sort-clear=""
       >
+
+      <template #cell(nomeMaterial)="data">
+        <span class="capitalize">{{ data.item.nomeMaterial }}</span>
+      </template>
+
+      <template #cell(valor)="data">
+        <span>R$ {{ data.item.valor }}</span>
+      </template>
+
       <template v-slot:cell(actions)="data">
         <b-button
           variant="success"
           size="sm"
           class="editar"
-          @click="editar(data.id)"
+          @click="modalEdit(data.item)"
         >
         <b-icon icon="pencil-square" style="width: 15px;"></b-icon>
       </b-button>
         <b-button
           variant="danger"
           size="sm"
-          @click="excluir(data.id)"
+          @click="modalDelete(data.item)"
           style="margin-right: 10px;"
         >
         <b-icon icon="trash-fill" style="width: 15px;"></b-icon>
       </b-button>
       </template>
     </b-table>
-    </div>
+  </div>
 
     <div>
       <b-button
@@ -44,17 +55,144 @@
     </div>
 
     <b-modal
+      id="modalEdit"
+      ref="modalEdit"
+      hide-header
+      size="xl"
+    >
+    <div class="container-banner">
+        <h1 class="titulo">Editar material</h1>
+      </div>
+
+      <div class="container-input">
+        <b-form-input
+          v-model="form_update.nomeMaterial"
+          autocomplete="off"
+          placeholder="*MATERIAL"
+          class="input"
+        ></b-form-input>
+      </div>
+      <div class="container-input">
+        <b-form-input
+          v-model="form_update.unidadeMedida"
+          autocomplete="off"
+          placeholder="*UNIDADE DE MEDIDA"
+          class="input"
+        ></b-form-input>
+      </div>
+
+      <div class="container-input">
+        <b-form-input
+          v-model="form_update.valor"
+          autocomplete="off"
+          placeholder="*VALOR"
+          class="input"
+        ></b-form-input>
+      </div>
+      <div class="container-input">
+        <b-button @click="editar(form_update)" class="botao input">
+          <small class="titulo-botao">EDITAR</small>
+        </b-button>
+      </div>
+      <template #modal-footer>
+        <b-button
+          class="botao"
+          @click="$refs.modalEdit.hide()"
+          >
+          <small
+            class="titulo-botao"
+            >
+            FECHAR
+          </small>
+        </b-button>
+      </template>
+    </b-modal>
+
+    <b-modal
+      id="modalDelete"
+      ref="modalDelete"
+      hide-header
+      size="xl"
+    >
+      <div class="container-banner">
+        <h1 class="titulo">Excluir material</h1>
+      </div>
+
+      <div class="container-input">
+        <h3 class="subtitulo">Você tem certeza que quer excluir o material?</h3>
+      </div>
+
+      <div class="container-input">
+        <b-button @click="excluir(item)" class="botao input" style="background-color: red;border-color: red;">
+          <small class="titulo-botao">EXCLUIR</small>
+        </b-button>
+      </div>
+
+      <template #modal-footer>
+        <b-button
+          class="botao"
+          @click="$refs.modalDelete.hide()"
+          >
+          <small
+            class="titulo-botao"
+            >
+            FECHAR
+          </small>
+        </b-button>
+      </template>
+
+    </b-modal>
+
+    <b-modal
       id="adicionar"
       ref="modal"
       hide-header
       size="xl"
     >
-      <material />
+      <div class="container-banner">
+        <h1 class="titulo">Adicionar material</h1>
+      </div>
+
       <div class="container-input">
-        <b-button class="botao input">
-          <small class="titulo-botao" @click="mostraToast">ADICIONAR</small>
+        <b-form-input
+          v-model="nomeMaterial"
+          autocomplete="off"
+          placeholder="*MATERIAL"
+          class="input"
+          :state="materialState"
+          required
+        ></b-form-input>
+      </div>
+
+      <div class="container-input">
+        <b-form-input
+          v-model="unidadeMedida"
+          autocomplete="off"
+          placeholder="*UNIDADE DE MEDIDA"
+          class="input"
+          :state="unidadeState"
+          required
+        ></b-form-input>
+      </div>
+
+      <div class="container-input">
+        <b-form-input
+          v-model="valor"
+          autocomplete="off"
+          placeholder="*VALOR"
+          type="number"
+          class="input"
+          :state="valorState"
+          required
+        ></b-form-input>
+      </div>
+
+      <div class="container-input">
+        <b-button class="botao input" @click="adicionarMaterial" type="submit">
+          <small class="titulo-botao">ADICIONAR</small>
         </b-button>
       </div>
+
       <template #modal-footer>
         <b-button
           class="botao"
@@ -67,32 +205,32 @@
           </small>
         </b-button>
       </template>
+
     </b-modal>
 
   </div>
 </template>
 
 <script>
-import Material from '../components/Material.vue'
+import axios from 'axios'
 
 export default {
-  components: {
-    Material
-  },
   data () {
     return {
-      items: [
-        { id: 1, material: 'Papelão', unidade: '(Kg)', valor: 'R$0,67' },
-        { id: 2, material: 'Ouro', unidade: '(g)', valor: 'R$349,45' }
-      ],
+      items: [],
+      form_update: {
+        nomeMaterial: '',
+        valor: '',
+        unidadeMedida: ''
+      },
       fields: [
         {
-          key: 'material',
+          key: 'nomeMaterial',
           label: 'Material',
           sortable: true
         },
         {
-          key: 'unidade',
+          key: 'unidadeMedida',
           label: 'Unidade de Medida',
           sortable: true
         },
@@ -108,33 +246,125 @@ export default {
       ]
     }
   },
+  mounted () {
+    this.list()
+  },
   methods: {
-    mostraToast () {
-      // eslint-disable-next-line no-undef
-      Toast.fire('Material adicionado!', 'Prossiga para os próximos passos.', 'success')
-      this.closeModal()
+    adicionarMaterial () {
+      if (!this.nomeMaterial || !this.valor || !this.unidadeMedida) {
+        // eslint-disable-next-line no-undef
+        Toast.fire('Erro!', 'Os campos não devem estar vazios.', 'error')
+        return
+      }
+      if (this.nomeMaterial && this.valor && this.unidadeMedida) {
+        const DATA = [
+          this.nomeMaterial,
+          this.unidadeMedida,
+          this.valor
+        ]
+
+        axios
+          .post('http://localhost:8080/api/Material', {
+            data: DATA,
+            nomeMaterial: this.nomeMaterial,
+            unidadeMedida: this.unidadeMedida,
+            valor: this.valor
+          })
+          .then(response => {
+            console.log(response)
+            this.list()
+            // eslint-disable-next-line no-undef
+            Toast.fire('Material adicionado!', 'Prossiga para os próximos passos.', 'success')
+            this.closeModal()
+          })
+          .catch(error => {
+            console.error(error)
+            // eslint-disable-next-line no-undef
+            Toast.fire('Erro!', 'Ocorreu um erro.', 'error')
+          })
+      }
     },
     resetModal () {
       this.name = ''
       this.nameState = null
     },
-    handleOk (bvModalEvent) {
-      bvModalEvent.preventDefault()
-      this.handleSubmit()
-    },
-    handleSubmit () {
-      if (!this.checkFormValidity()) {
-        return
-      }
-      this.submittedNames.push(this.name)
-      this.$nextTick(() => {
-        this.$bvModal.hide('adicionar')
-      })
+    list () {
+      axios
+        .get('http://localhost:8080/api/Material')
+        .then(response => {
+          this.items = response.data
+        })
+        .catch(error => console.log(error))
     },
     closeModal () {
       setTimeout(() => {
         this.$bvModal.hide('adicionar')
-      }, 1500)
+      }, 500)
+    },
+    modalEdit (item) {
+      this.$bvModal.show('modalEdit')
+      this.form_update.id = item.id
+      axios
+        .get(`http://localhost:8080/api/Material/${item.id}`)
+        .then(response => {
+          const responseData = response.data
+          this.form_update.nomeMaterial = responseData.nomeMaterial
+          this.form_update.valor = responseData.valor
+          this.form_update.unidadeMedida = responseData.unidadeMedida
+        })
+        .catch(error => {
+          console.error(error)
+          // eslint-disable-next-line no-undef
+          Toast.fire('Erro!', 'Ocorreu um erro ao carregar os dados para edição.', 'error')
+        })
+    },
+    editar (item) {
+      if (!this.form_update.nomeMaterial || !this.form_update.valor || !this.form_update.unidadeMedida) {
+        // eslint-disable-next-line no-undef
+        Toast.fire('Erro!', 'Os campos não devem estar vazios.', 'error')
+        return
+      }
+      if (this.form_update.nomeMaterial && this.form_update.valor && this.form_update.unidadeMedida) {
+        axios
+          .put(`http://localhost:8080/api/Material/${item.id}`, this.form_update)
+          .then(response => {
+            console.log(response)
+            this.$bvModal.hide('modalEdit')
+            // eslint-disable-next-line no-undef
+            Toast.fire('Material Atualizado!', '', 'success')
+            this.list()
+          })
+          .catch(error => {
+            console.error(error)
+            // eslint-disable-next-line no-undef
+            Toast.fire('Erro!', 'Ocorreu um erro ao editar os dados.', 'error')
+          })
+      }
+    },
+    modalDelete (item) {
+      this.item = item
+      this.$bvModal.show('modalDelete')
+    },
+    closeModalDelete () {
+      setTimeout(() => {
+        this.$bvModal.hide('modalDelete')
+      }, 500)
+    },
+    excluir (item) {
+      axios
+        .delete(`http://localhost:8080/api/Material/${item.id}`)
+        .then((response) => {
+          console.log(response)
+          this.$bvModal.hide('modalDelete')
+          // eslint-disable-next-line no-undef
+          Toast.fire('Material Excluído!', '', 'success')
+          this.list()
+        })
+        .catch((error) => {
+        // eslint-disable-next-line no-undef
+          Toast.fire('Erro!', 'Ocorreu um erro ao excluir o material.', 'error')
+          console.error(error)
+        })
     }
   }
 }
@@ -174,10 +404,12 @@ export default {
   background-color: #319950;
 }
 .input {
-  width: 25%;
+  width: 50%;
   border-width: 0.215rem;
   border-color: black;
   border-radius: 30px;
+  justify-content: center;
+  align-items: center;
 }
 .tabela {
   width: 90%;

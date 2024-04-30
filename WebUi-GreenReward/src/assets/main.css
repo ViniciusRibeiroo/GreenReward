@@ -93,6 +93,9 @@
     border-color: black;
     border-radius: 30px;
   }
+  .capitalize {
+    text-transform: capitalize;
+  }
   
   @media only screen and (max-width: 767px) {
     .titulo {
