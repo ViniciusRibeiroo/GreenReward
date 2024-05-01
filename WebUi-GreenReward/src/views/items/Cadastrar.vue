@@ -19,8 +19,12 @@
         <span class="capitalize">{{ data.item.nomeMaterial }}</span>
       </template>
 
+      <template #cell(unidadeMedida)="data">
+        <span>({{ data.item.unidadeMedida }})</span>
+      </template>
+
       <template #cell(valor)="data">
-        <span>R$ {{ data.item.valor }}</span>
+        <span>R$ {{ data.item.valor.toFixed(2) }}</span>
       </template>
 
       <template v-slot:cell(actions)="data">
@@ -72,13 +76,16 @@
           class="input"
         ></b-form-input>
       </div>
+
       <div class="container-input">
-        <b-form-input
+        <b-form-select
           v-model="form_update.unidadeMedida"
+          :options="options"
           autocomplete="off"
           placeholder="*UNIDADE DE MEDIDA"
           class="input"
-        ></b-form-input>
+          style="width: 50%;height: 2.7rem;padding-left: 9px;"
+        ></b-form-select>
       </div>
 
       <div class="container-input">
@@ -87,8 +94,12 @@
           autocomplete="off"
           placeholder="*VALOR"
           class="input"
+          type="number"
+          step="0.01"
+          min="0"
         ></b-form-input>
       </div>
+
       <div class="container-input">
         <b-button @click="editar(form_update)" class="botao input">
           <small class="titulo-botao">EDITAR</small>
@@ -165,14 +176,16 @@
       </div>
 
       <div class="container-input">
-        <b-form-input
+        <b-form-select
           v-model="unidadeMedida"
+          :options="options"
           autocomplete="off"
           placeholder="*UNIDADE DE MEDIDA"
           class="input"
           :state="unidadeState"
           required
-        ></b-form-input>
+          style="width: 50%;height: 2.7rem;padding-left: 9px;"
+        ></b-form-select>
       </div>
 
       <div class="container-input">
@@ -182,6 +195,8 @@
           placeholder="*VALOR"
           type="number"
           class="input"
+          step="0.01"
+          min="0"
           :state="valorState"
           required
         ></b-form-input>
@@ -223,6 +238,13 @@ export default {
         valor: '',
         unidadeMedida: ''
       },
+      unidadeMedida: null,
+      options: [
+        { value: null, text: 'UNIDADE DE MEDIDA' },
+        { value: 'kg', text: 'QUILO' },
+        { value: 'g', text: 'GRAMA' },
+        { value: 'mg', text: 'MILIGRAMA' }
+      ],
       fields: [
         {
           key: 'nomeMaterial',

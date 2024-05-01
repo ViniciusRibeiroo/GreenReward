@@ -153,6 +153,8 @@ export default {
         .then((response) => {
           this.$router.push('/menu')
           console.log(response.data)
+          // eslint-disable-next-line no-undef
+          Toast.fire('Login Efetuado!', '', 'success')
         })
         .catch((error) => {
           this.error = 'Login ou senha incorretos'
