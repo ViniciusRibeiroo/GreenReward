@@ -2,6 +2,13 @@
 node_modules
 /dist
 
+# .NET Core build folders
+**/bin/
+**/obj/
+**/Debug/
+**/log/
+**/Files/
+
 # local env files
 .env.local
 .env.*.local
