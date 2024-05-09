@@ -3,6 +3,7 @@
 
     <div class="container-input" responsive>
       <b-table
+        v-if="!loading"
         striped
         sticky-header
         :items="items"
@@ -35,18 +36,30 @@
           @click="modalEdit(data.item)"
         >
         <b-icon icon="pencil-square" style="width: 15px;"></b-icon>
-      </b-button>
-        <b-button
-          variant="danger"
-          size="sm"
-          @click="modalDelete(data.item)"
-          style="margin-right: 10px;"
-        >
-        <b-icon icon="trash-fill" style="width: 15px;"></b-icon>
-      </b-button>
+        </b-button>
+          <b-button
+            variant="danger"
+            size="sm"
+            @click="modalDelete(data.item)"
+            style="margin-right: 10px;"
+          >
+          <b-icon icon="trash-fill" style="width: 15px;"></b-icon>
+        </b-button>
       </template>
-    </b-table>
-  </div>
+      </b-table>
+
+      <div
+        v-else
+        class="d-flex align-items-center mb-1"
+      >
+        <b-spinner
+          variant="success"
+        />
+        <p style="margin-left: 1rem;" class="mb-0 subsubtitulo">
+          Aguarde enquanto os dados estão sendo carregados!
+        </p>
+      </div>
+    </div>
 
     <div>
       <b-button
@@ -55,6 +68,13 @@
           v-b-modal.adicionar
         >
         <b-icon icon="plus-lg" style="width: 15px;"></b-icon>
+      </b-button>
+      <b-button
+          size="md"
+          class="recarregar"
+          @click="recarregar"
+        >
+        <b-icon icon="arrow-clockwise" style="width: 15px;"></b-icon>
       </b-button>
     </div>
 
@@ -232,6 +252,7 @@ import axios from 'axios'
 export default {
   data () {
     return {
+      loading: true,
       items: [],
       form_update: {
         nomeMaterial: '',
@@ -272,6 +293,12 @@ export default {
     this.list()
   },
   methods: {
+    recarregar () {
+      this.loading = true
+      setTimeout(() => {
+        this.list()
+      }, 900)
+    },
     adicionarMaterial () {
       if (!this.nomeMaterial || !this.valor || !this.unidadeMedida) {
         // eslint-disable-next-line no-undef
@@ -315,8 +342,12 @@ export default {
         .get('http://localhost:8080/api/Material')
         .then(response => {
           this.items = response.data
+          this.loading = false
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          console.log(error)
+          this.loading = false
+        })
     },
     closeModal () {
       setTimeout(() => {
@@ -444,6 +475,11 @@ export default {
 }
 .adicionar {
   margin-left: 4rem;
+  background-color: #062800;
+  border-radius: 100%;
+}
+.recarregar {
+  margin-left: 0.5rem;
   background-color: #062800;
   border-radius: 100%;
 }
