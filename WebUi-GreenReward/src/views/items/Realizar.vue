@@ -41,7 +41,7 @@
 
       <div class="container-input">
         <b-button class="botao input" style="width: 50%;">
-          <small class="titulo-botao" @click="exibeToast">ADICIONAR</small>
+          <small class="titulo-botao" @click="comprar">ADICIONAR</small>
         </b-button>
       </div>
 
@@ -74,9 +74,12 @@ export default {
     }
   },
   methods: {
-    exibeToast () {
+    comprar () {
       // eslint-disable-next-line no-undef
       Toast.fire('Compra realizada!', 'Você pode consultar sua nota fiscal agora.', 'success')
+
+      const notaURL = this.$router.resolve('/nota').href
+      window.open(notaURL, '_blank')
     }
   }
 }
