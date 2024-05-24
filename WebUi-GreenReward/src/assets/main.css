@@ -17,6 +17,14 @@
     font-weight: bold;
     color: #062800;
   }
+  .titulo-adquira {
+    font-family: var(--titulo);
+    font-size: 1.35625em;
+    line-height: 120%;
+    font-weight: bold;
+    margin: 0;
+    color: #fff;
+  }
   .subtitulo {
     font-family: var(--subtitulo);
     font-size: 2em;
@@ -38,6 +46,15 @@
     font-size: 32px;
     font-style: normal;
     color: #fff;
+  }
+  .titulo-menu-home {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 32px;
+    font-style: normal;
+    color: #fff;
+    text-align: center;
   }
   .titulo-valor {
     font-family: "Oswald", sans-serif;
@@ -105,3 +122,28 @@
       font-size: 2.75em;
     }
   }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #062800;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #225B18;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: #f0f0f0;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #fff;
+}
