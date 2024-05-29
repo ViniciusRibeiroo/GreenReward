@@ -89,6 +89,12 @@
     <div class="container-botao">
       <b-button
         class="botao"
+        @click="home"
+      >
+        <b-icon icon="house" style="width: 15px;"></b-icon> HOME
+      </b-button>
+      <b-button
+        class="botao"
         @click="back"
       >
         <b-icon icon="arrow90deg-left" style="width: 15px;"></b-icon> VOLTAR
@@ -159,6 +165,9 @@ export default {
   methods: {
     back () {
       this.$router.push('/login')
+    },
+    home () {
+      this.$router.push('/')
     },
     clearForm () {
       this.name = ''

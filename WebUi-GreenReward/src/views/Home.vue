@@ -10,7 +10,7 @@
             <li><a href="#">Início</a></li>
             <li><a href="#">Contatos</a></li>
             <li><a href="#" @click="login">Entrar</a></li>
-            <b-button class="botao" @click="login">
+            <b-button class="botao" @click="cadastrar">
               Cadastre-se
             </b-button>
           </ul>
@@ -92,6 +92,9 @@ export default {
     },
     login () {
       this.$router.push('/login')
+    },
+    cadastrar () {
+      this.$router.push('/create-account')
     }
   }
 }

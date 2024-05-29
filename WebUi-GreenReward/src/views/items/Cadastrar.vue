@@ -247,6 +247,7 @@
 </template>
 
 <script>
+import { EventBus } from '../../eventBus'
 import axios from 'axios'
 
 export default {
@@ -322,6 +323,7 @@ export default {
           .then(response => {
             console.log(response)
             this.list()
+            EventBus.$emit('updateUnidadeMedida', this.unidadeMedida)
             // eslint-disable-next-line no-undef
             Toast.fire('Material adicionado!', 'Prossiga para os próximos passos.', 'success')
             this.closeModal()
@@ -383,6 +385,7 @@ export default {
           .then(response => {
             console.log(response)
             this.$bvModal.hide('modalEdit')
+            EventBus.$emit('updateUnidadeMedida', this.form_update.unidadeMedida)
             // eslint-disable-next-line no-undef
             Toast.fire('Material Atualizado!', '', 'success')
             this.list()
